@@ -1,5 +1,8 @@
 # Mongo
 
+## Site Gif
+- 
+
 ## Summary
 This repo is dedicated to explaining basic interactions with a Mongo Database using Express.js and Mongoose. This app also uses React.js as the user interface. 
 
@@ -7,6 +10,8 @@ This repo is dedicated to explaining basic interactions with a Mongo Database us
 - mongoose: used to connect to MongoDB database 
 - express: a web-framework that quickly setup servers that can listen for requests.
 - create-react-app: sets up a single-page react app that requires no configuration
+- surge: quick deployment method for client
+- concurrently: used to run both the server and the client at the same time.
 
 ## Steps
 1. Create directory and add server.js and folders for routes, models, and controllers.

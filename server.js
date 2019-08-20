@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose")
 const PORT = process.env.PORT || 5000;
-const uri = "mongodb://localhost/zoo"
+const uri = process.env.MONGODB_URI || "mongodb://localhost/zoo"
 
 global.db = mongoose.createConnection(uri, { useNewUrlParser: true });
 
