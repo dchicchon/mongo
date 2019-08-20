@@ -43,7 +43,13 @@ class App extends Component {
     API.createAnimal(animalData)
       .then(res => {
         console.log(res)
-        window.location.reload()
+        API.getAnimal()
+          .then(res => {
+            this.setState({
+              animals: res.data
+            })
+          })
+        // window.location.reload()
       })
 
 
