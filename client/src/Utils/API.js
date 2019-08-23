@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default {
     getAnimal: function () {
-        return axios.get('/animals')
+        return axios.get('/animal')
     },
 
     createAnimal: animal => {
