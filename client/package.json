@@ -1,7 +1,7 @@
 {
   "name": "client",
-  "proxy": "https://mongoboy.herokuapp.com/",
-  "homepage": "https://mongoboy.herokuapp.com/",
+  "proxy": "https://mongoboy.herokuapp.com",
+  "homepage": "https://dchicchon.github.io/mongo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
