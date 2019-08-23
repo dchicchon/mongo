@@ -12,9 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(routes)
-// mongoose.connect('mongodb://localhost/zoo', { useNewUrlParser: true });
-
-
 
 app.listen(PORT, () => {
     console.log("Server listening on PORT:", PORT)
