@@ -1,7 +1,5 @@
 {
   "name": "mongo",
-  "proxy": "https://cors-anywhere.herokuapp.com/https://mongoboy.herokuapp.com/",
-  "homepage": "https://dchicchon.github.io/mongo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

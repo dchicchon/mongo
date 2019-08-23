@@ -10,7 +10,7 @@ global.db = mongoose.createConnection(uri, { useNewUrlParser: true });
 const routes = require("./routes")
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(expres.static("client/build"));
+    app.use(express.static("client/build"));
 } else {
     app.use(express.static("client/public"));
 }
