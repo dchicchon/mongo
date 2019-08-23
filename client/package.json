@@ -1,7 +1,6 @@
 {
   "name": "mongo",
   "version": "0.1.0",
-  "homepage": "https://mongoboy.herokuapp.com/",
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
