@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "proxy": "https://infinite-tor-61896.herokuapp.com/",
+  "proxy": "https://mongoboy.herokuapp.com/",
   "homepage": "https://dchicchon.github.io/mongo",
   "version": "0.1.0",
   "private": true,
