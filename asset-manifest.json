@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/mongo/static/css/main.c05c0898.chunk.css",
+    "main.js": "/mongo/static/js/main.bb8e7661.chunk.js",
+    "main.js.map": "/mongo/static/js/main.bb8e7661.chunk.js.map",
+    "runtime~main.js": "/mongo/static/js/runtime~main.6ffa920b.js",
+    "runtime~main.js.map": "/mongo/static/js/runtime~main.6ffa920b.js.map",
+    "static/js/2.ea959577.chunk.js": "/mongo/static/js/2.ea959577.chunk.js",
+    "static/js/2.ea959577.chunk.js.map": "/mongo/static/js/2.ea959577.chunk.js.map",
+    "index.html": "/mongo/index.html",
+    "precache-manifest.26b0628fd9301ea9aeb8d24af8b3b7f3.js": "/mongo/precache-manifest.26b0628fd9301ea9aeb8d24af8b3b7f3.js",
+    "service-worker.js": "/mongo/service-worker.js",
+    "static/css/main.c05c0898.chunk.css.map": "/mongo/static/css/main.c05c0898.chunk.css.map",
+    "static/media/logo.svg": "/mongo/static/media/logo.ee7cd8ed.svg"
+  }
+}
