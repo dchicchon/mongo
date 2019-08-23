@@ -73,8 +73,10 @@ class App extends Component {
           <h3>The Zoo</h3>
           <table>
             <tbody>
-              <th>Name</th>
-              <th>Type</th>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+              </tr>
 
               {(this.state.animals.length) ?
                 this.state.animals.map((animal, i) => (
