@@ -1,4 +1,5 @@
 const Schema = require("mongoose").Schema;
+
 const Animal = Schema({
     name: String,
     type: String
