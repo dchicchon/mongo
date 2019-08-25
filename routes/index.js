@@ -2,10 +2,8 @@ const path = require("path")
 const router = require("express").Router();
 const animalController = require("../controllers/animalController")
 
-router.route("/animal")
+router.route("/animals")
     .get(animalController.getAnimal)
-
-router.route("/")
     .post(animalController.createAnimal)
 
 router.use(function (req, res) {

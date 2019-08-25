@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static("client/build"));
 } else {
     app.use(express.static("client/public"));
-    }
+}
 
 app.use(cors());
 app.use(function (req, res, next) {
@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(routes)
+app.use('/api', routes)
 
 app.listen(PORT, () => {
     console.log("Server listening on PORT:", PORT)

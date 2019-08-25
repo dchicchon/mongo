@@ -2,10 +2,10 @@ import axios from 'axios'
 
 export default {
     getAnimal: function () {
-        return axios.get('/animal')
+        return axios.get('/api/animals')
     },
 
     createAnimal: animal => {
-        return axios.post("/", animal)
+        return axios.post("/api/animals", animal)
     }
 }
