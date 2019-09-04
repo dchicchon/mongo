@@ -6,7 +6,7 @@ function Animal(props) {
             <h5>{props.name}</h5>
             <h5>{props.type}</h5>
         </div>
-    )
+    );
 }
 
 export default Animal

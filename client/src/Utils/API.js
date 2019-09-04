@@ -8,5 +8,9 @@ export default {
 
     createAnimal: animal => {
         return axios.post("/api/animals", animal)
+    },
+
+    deleteAnimal: id => {
+        return axios.delete("/api/animals/" + id)
     }
 }

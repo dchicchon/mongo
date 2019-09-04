@@ -5,6 +5,7 @@ const animalController = require("../controllers/animalController")
 router.route("/animals")
     .get(animalController.getAnimal)
     .post(animalController.createAnimal)
+    .delete(animalController.deleteAnimal)
 
 router.use(function (req, res) {
     res.sendFile(path.join(__dirname, "../client/public/index.html"))
