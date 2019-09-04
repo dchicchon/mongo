@@ -5,6 +5,8 @@ const animalController = require("../controllers/animalController")
 router.route("/animals")
     .get(animalController.getAnimal)
     .post(animalController.createAnimal)
+
+router.route("/animals/:id")
     .delete(animalController.deleteAnimal)
 
 router.use(function (req, res) {

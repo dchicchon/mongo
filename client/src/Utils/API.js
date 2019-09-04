@@ -2,7 +2,6 @@ import axios from 'axios';
 
 export default {
     getAnimal: function () {
-        console.log("HI")
         return axios.get('/api/animals')
     },
 
@@ -12,5 +11,9 @@ export default {
 
     deleteAnimal: id => {
         return axios.delete("/api/animals/" + id)
+    },
+
+    updateAnimal: animal => {
+        return axios.put("/api/animals", animal)
     }
 }

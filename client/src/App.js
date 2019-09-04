@@ -11,7 +11,9 @@ class App extends Component {
 
   state = {
     name: '',
-    type: '',
+    species: '',
+    editName: '',
+    editSpecies: '',
     animals: []
   }
 
@@ -25,7 +27,6 @@ class App extends Component {
       })
   }
 
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -33,11 +34,38 @@ class App extends Component {
     })
   }
 
+  handleDelete = id => {
+    API.deleteAnimal(id)
+      .then(res => {
+        API.getAnimal()
+          .then(res => {
+            this.setState({
+              animals: res.data
+            })
+          })
+      })
+  }
+
+  handleUpdate = event => {
+    event.preventDefault()
+    let animalData = {
+      
+      name: this.state.editName,
+      species: this.state.editSpecies
+    }
+
+    console.log("Edit Entry")
+    API.updateAnimal(animalData)
+      .then(res => {
+        console.log("Entry Updated")
+      })
+  }
+
   handleSubmit = event => {
     event.preventDefault();
-    var animalData = {
+    let animalData = {
       name: this.state.name,
-      type: this.state.type
+      species: this.state.species
     }
 
     API.createAnimal(animalData)
@@ -46,6 +74,8 @@ class App extends Component {
         API.getAnimal()
           .then(res => {
             this.setState({
+              name: '',
+              species: '',
               animals: res.data
             })
           })
@@ -57,43 +87,49 @@ class App extends Component {
 
   render() {
     return (
-      <div className='container'>
-        <h3>Enter an animal in the database!</h3>
-        <form>
-          <input name='name' value={this.state.name} onChange={this.handleInputChange} type='text'></input>
-          <label htmlFor='name'>Name</label>
-          <input name='type' value={this.state.type} onChange={this.handleInputChange} type='text'></input>
-          <label htmlFor='type'>Type</label>
-          <br />
-          <br />
-          <button className='btn' type='submit' onClick={this.handleSubmit}>Enter</button>
-        </form>
+      <div className='grey lighten-3'>
+        <div className='container'>
+          <h3 style={{ marginTop: '0px' }}>Enter an animal in the database!</h3>
+          <form>
+            <input name='name' value={this.state.name} onChange={this.handleInputChange} type='text'></input>
+            <label htmlFor='name'>Name</label>
+            <input name='species' value={this.state.species} onChange={this.handleInputChange} type='text'></input>
+            <label htmlFor='species'>Species</label>
+            <br />
+            <br />
+            <button className='btn' type='submit' onClick={this.handleSubmit}>Enter</button>
+          </form>
 
-        <div>
-          <h3>The Zoo</h3>
-          <table>
-            <tbody>
-              <tr>
-                <th>Name</th>
-                <th>Type</th>
-              </tr>
+          <div>
+            <h3>The Zoo</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Species</th>
+                  <th>Remove</th>
+                  <th>Edit</th>
+                </tr>
 
-              {(this.state.animals.length) ?
-                this.state.animals.map((animal, i) => (
-                  <tr key={i}>
-                    <td>{animal.name}</td>
-                    <td>{animal.type}</td>
-                  </tr>
+                {(this.state.animals.length) ?
+                  this.state.animals.map((animal, i) => (
+                    <tr key={i}>
+                      <td>{animal.name}</td>
+                      <td>{animal.species}</td>
+                      <td><button type="button" className='btn' onClick={() => this.handleDelete(animal._id)}>x</button></td>
+                      <td><button type='button' className='btn' onClick={() => this.handleUpdate(animal._id)}><i className="material-icons">adjust</i></button></td>
+                    </tr>
 
-                )) : "No Animals"
-              }
+                  )) : "No Animals"
+                }
 
-            </tbody>
+              </tbody>
 
-          </table>
+            </table>
+
+          </div>
 
         </div>
-
       </div>
     );
   }
