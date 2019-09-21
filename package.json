@@ -1,7 +1,7 @@
 {
   "name": "mongo",
   "version": "1.0.0",
-  "description": "",
+  "description": "-",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -19,5 +19,14 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.6.9"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dchicchon/mongo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dchicchon/mongo/issues"
+  },
+  "homepage": "https://github.com/dchicchon/mongo#readme"
 }

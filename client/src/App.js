@@ -7,6 +7,18 @@ import './App.css';
 
 import API from './Utils/API'
 
+const editForm =
+  <div>
+    <div className='input-field col s12'>
+      <input name='name' className='validate'>Edit Name</input>
+      <label htmlFor='name'>Name</label>
+    </div>
+    <div className='input-field col s12'>
+      <input name='species' className='validate'>Edit Species</input>
+      <label htmlFor='species'>Species</label>
+    </div>
+  </div>
+
 class App extends Component {
 
   state = {
@@ -46,19 +58,21 @@ class App extends Component {
       })
   }
 
-  handleUpdate = event => {
+  handleUpdate = (id, event) => {
     event.preventDefault()
+    console.log(event.target.parentElement.parentElement)
+    // let editData = event.target.parentElement.parentElement
+
+    console.log(id)
     let animalData = {
-      
       name: this.state.editName,
       species: this.state.editSpecies
     }
-
     console.log("Edit Entry")
-    API.updateAnimal(animalData)
-      .then(res => {
-        console.log("Entry Updated")
-      })
+    // API.updateAnimal(animalData)
+    //   .then(res => {
+    //     console.log("Entry Updated")
+    //   })
   }
 
   handleSubmit = event => {
@@ -89,13 +103,21 @@ class App extends Component {
     return (
       <div className='grey lighten-3'>
         <div className='container'>
-          <h3 style={{ marginTop: '0px' }}>Enter an animal in the database!</h3>
+          <h3>Mongo Zoo</h3>
+          <p>Enter an animal</p>
           <form>
-            <input name='name' value={this.state.name} onChange={this.handleInputChange} type='text'></input>
-            <label htmlFor='name'>Name</label>
-            <input name='species' value={this.state.species} onChange={this.handleInputChange} type='text'></input>
-            <label htmlFor='species'>Species</label>
-            <br />
+            <div className='row'>
+              <div className='input-field col s12'>
+                <input className='validate' name='name' value={this.state.name} onChange={this.handleInputChange} type='text'></input>
+                <label htmlFor='name'>Name</label>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='input-field col s12'>
+                <input className='validate' name='species' value={this.state.species} onChange={this.handleInputChange} type='text'></input>
+                <label htmlFor='species'>Species</label>
+              </div>
+            </div>
             <br />
             <button className='btn' type='submit' onClick={this.handleSubmit}>Enter</button>
           </form>
@@ -117,7 +139,7 @@ class App extends Component {
                       <td>{animal.name}</td>
                       <td>{animal.species}</td>
                       <td><button type="button" className='btn' onClick={() => this.handleDelete(animal._id)}>x</button></td>
-                      <td><button type='button' className='btn' onClick={() => this.handleUpdate(animal._id)}><i className="material-icons">adjust</i></button></td>
+                      <td><button type='button' className='btn' onClick={event => this.handleUpdate(animal._id)}><i className="material-icons">adjust</i></button></td>
                     </tr>
 
                   )) : "No Animals"
