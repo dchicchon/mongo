@@ -3,6 +3,10 @@ const app = express();
 const mongoose = require("mongoose")
 const uri = process.env.MONGODB_URI || "mongodb://localhost/zoo"
 const cors = require("cors")
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 
 global.db = mongoose.createConnection(uri, { useNewUrlParser: true });
 

@@ -18,6 +18,18 @@ module.exports = {
             })
     },
 
+    updateAnimal: (req, res) => {
+        Animal.findByIdAndUpdate(req.body.id,
+            {
+                name: req.body.name,
+                species: req.body.species
+            })
+            .then(dbAnimal =>   {
+                res.json(dbAnimal)
+                console.log('Successfully Edited Animal')
+            })
+    },
+
     deleteAnimal: (req, res) => {
         Animal.findByIdAndDelete(
             req.params.id)

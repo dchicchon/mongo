@@ -5,6 +5,7 @@ const animalController = require("../controllers/animalController")
 router.route("/animals")
     .get(animalController.getAnimal)
     .post(animalController.createAnimal)
+    .put(animalController.updateAnimal)
 
 router.route("/animals/:id")
     .delete(animalController.deleteAnimal)
