@@ -40,6 +40,7 @@ class App extends Component {
     // New Animal
     name: '',
     species: '',
+    error: false,
 
     // Edit
     edit: false,
@@ -142,23 +143,31 @@ class App extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    let animalData = {
-      name: this.state.name,
-      species: this.state.species
+    if (this.state.name && this.state.species) {
+      let animalData = {
+        name: this.state.name,
+        species: this.state.species
+      }
+      API.createAnimal(animalData)
+        .then(res => {
+          console.log(res)
+          API.getAnimal()
+            .then(res => {
+              this.setState({
+                name: '',
+                species: '',
+                animals: res.data,
+                error: false
+              })
+            })
+        })
+    } else {
+      console.log("Please fill out all fields")
+      this.setState({
+        error: true
+      })
     }
 
-    API.createAnimal(animalData)
-      .then(res => {
-        console.log(res)
-        API.getAnimal()
-          .then(res => {
-            this.setState({
-              name: '',
-              species: '',
-              animals: res.data
-            })
-          })
-      })
 
 
   }
@@ -196,7 +205,8 @@ class App extends Component {
               <label htmlFor='species'>Species</label>
             </div>
           </div>
-          <br />
+          {/* <br /> */}
+          {this.state.error ? <p className='error'>Please fill out all fields</p> : ''}
           <button className='btn' type='submit' onClick={this.handleSubmit}>Enter</button>
         </form>
 

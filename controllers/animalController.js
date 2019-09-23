@@ -24,7 +24,7 @@ module.exports = {
                 name: req.body.name,
                 species: req.body.species
             })
-            .then(dbAnimal =>   {
+            .then(dbAnimal => {
                 res.json(dbAnimal)
                 console.log('Successfully Edited Animal')
             })

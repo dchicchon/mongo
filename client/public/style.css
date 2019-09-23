@@ -4,6 +4,10 @@ html, body {
     /* background: white; */
 }
 
+.error {
+    color: red;
+}
+
 .modal {
     position: fixed;
     z-index: 1;
