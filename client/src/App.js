@@ -103,30 +103,26 @@ class App extends Component {
   handleUpdate = event => {
     event.preventDefault()
 
+    let animalData = {}
     if (this.state.editName === '') {
-      let animalData = {
+      animalData = {
         id: this.state.editID,
         name: this.state.oldName,
         species: this.state.editSpecies
       }
     } else if (this.state.editSpecies === '') {
-      let animalData = {
+      animalData = {
         id: this.state.editID,
         name: this.state.editName,
         species: this.state.oldSpecies
       }
     } else {
-      let animalData = {
+      animalData = {
         id: this.state.editID,
         name: this.state.editName,
         species: this.state.editSpecies
       }
     }
-
-  
-
-
-
 
     console.log(animalData)
     this.hideModal()
