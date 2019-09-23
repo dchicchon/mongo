@@ -23,3 +23,6 @@ This repo is dedicated to explaining basic interactions with a Mongo Database us
 4. Setup MongoDB in server.js by adding your database uri and using mongoose to create the connection. Here we use global.db to have the database be used anywhere in our app.
 
 
+## Stretch Goals
+- Add analytics of the population of animals within the zoo (number per species, how many of each gender)
+

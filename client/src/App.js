@@ -7,8 +7,34 @@ import './App.css';
 
 import API from './Utils/API'
 
-// const
+// Add Form
+const AddForm = ({addClose, add, handleInputChange, name, species, handleSubmit, error }) => {
+  const showHideClassName = add ? 'modal display-block animated fadeIn' : 'modal display-none';
 
+  return (
+    <div className={showHideClassName}>
+      <section className='modal-main center'>
+        <h3 className='left'>Add</h3>
+          <div className='row'>
+            <div className='input-field col s12'>
+              <input className='validate' name='name' value={name} onChange={handleInputChange} type='text'></input>
+              <label htmlFor='name'>Name</label>
+            </div>
+          </div>
+          <div className='row'>
+            <div className='input-field col s12'>
+              <input className='validate' name='species' value={species} onChange={handleInputChange} type='text'></input>
+              <label htmlFor='species'>Species</label>
+            </div>
+          </div>
+          {error ? <p className='error'>Please fill out all fields</p> : ''}
+          <button className='btn' onClick={handleSubmit}>Enter</button> <button className='btn' onClick={addClose}>Close</button>
+      </section>
+    </div>
+  )
+}
+
+// Edit Form
 const EditForm = ({ oldName, oldSpecies, editName, editSpecies, handleClose, handleInputChange, edit, handleUpdate }) => {
   const showHideClassName = edit ? 'modal display-block animated fadeIn' : 'modal display-none';
   return (
@@ -38,6 +64,7 @@ class App extends Component {
 
   state = {
     // New Animal
+    add: false,
     name: '',
     species: '',
     error: false,
@@ -68,6 +95,20 @@ class App extends Component {
     const { name, value } = event.target;
     this.setState({
       [name]: value
+    })
+  }
+
+  addModal = () => {
+    this.setState({
+      add: true
+    })
+  }
+
+  addClose = () => {
+    this.setState({
+      add: false,
+      name: '',
+      species: ''
     })
   }
 
@@ -177,7 +218,17 @@ class App extends Component {
       <div className='container'>
         <div className=''>
           <h3>Mongo Zoo</h3>
-          <p>Enter an animal</p>
+          {/* <p>Enter an animal</p> */}
+          <button className='btn' onClick={this.addModal}>Add an animal</button>
+          <AddForm
+            add={this.state.add}
+            addClose={this.addClose}
+            error={this.state.error}
+            handleInputChange={this.handleInputChange}
+            handleSubmit={this.handleSubmit}
+            name={this.state.name}
+            species={this.state.species}
+          />
         </div>
 
         {/* This is the edit form if they click the edit button */}
@@ -192,23 +243,6 @@ class App extends Component {
           handleInputChange={this.handleInputChange}
         />
 
-        <form>
-          <div className='row'>
-            <div className='input-field col s12'>
-              <input className='validate' name='name' value={this.state.name} onChange={this.handleInputChange} type='text'></input>
-              <label htmlFor='name'>Name</label>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='input-field col s12'>
-              <input className='validate' name='species' value={this.state.species} onChange={this.handleInputChange} type='text'></input>
-              <label htmlFor='species'>Species</label>
-            </div>
-          </div>
-          {/* <br /> */}
-          {this.state.error ? <p className='error'>Please fill out all fields</p> : ''}
-          <button className='btn' type='submit' onClick={this.handleSubmit}>Enter</button>
-        </form>
 
         <div>
           <h3>The Zoo</h3>
